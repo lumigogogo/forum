@@ -1,6 +1,8 @@
 -- 数据库初始化脚本
 
-CREATE DATABASE forum;
+CREATE DATABASE forum DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;;
+
+DROP DATABASE forum;
 
 USE forum;
 

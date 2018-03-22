@@ -1,6 +1,6 @@
-package dao;
+package com.egg.dao;
 
-import entity.Comment;
+import com.egg.entity.Comment;
 
 import java.util.List;
 

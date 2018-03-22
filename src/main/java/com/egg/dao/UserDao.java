@@ -1,6 +1,6 @@
-package dao;
+package com.egg.dao;
 
-import entity.User;
+import com.egg.entity.User;
 
 
 public interface UserDao {

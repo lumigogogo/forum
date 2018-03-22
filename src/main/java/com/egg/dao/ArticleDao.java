@@ -1,6 +1,6 @@
-package dao;
+package com.egg.dao;
 
-import entity.Article;
+import com.egg.entity.Article;
 
 import java.util.List;
 
