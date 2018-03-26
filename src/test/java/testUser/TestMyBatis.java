@@ -23,7 +23,6 @@ public class TestMyBatis {
     @Test
     public void test1(){
         Long userId = 1000L;
-
         User user = userService.getUserById(userId);
 
         logger.info(JSON.toJSONString(user));
