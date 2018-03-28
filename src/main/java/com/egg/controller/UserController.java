@@ -11,12 +11,12 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-@RequestMapping(value = "/user", method = RequestMethod.GET)
 public class UserController {
 
     @Resource
     private UserService userService;
 
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
     public String toIndex(HttpServletRequest request, Model model){
         long userId = Long.parseLong(request.getParameter("id"));
         User user = userService.getUserById(userId);
