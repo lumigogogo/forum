@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="war" name="forum:Web exploded">
+  <artifact type="war" build-on-make="true" name="forum:Web exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/forum_Web_exploded</output-path>
     <root id="archive" name="forum_Web exploded.war">
       <element id="javaee-facet-resources" facet="forum/web/Web" />
@@ -38,6 +38,8 @@
           <element id="library" level="project" name="Maven: javax:javaee-api:7.0" />
           <element id="library" level="project" name="Maven: com.sun.mail:javax.mail:1.5.0" />
           <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
+          <element id="library" level="project" name="Maven: com.auth0:java-jwt:3.2.0" />
+          <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.10" />
         </element>
       </element>
     </root>

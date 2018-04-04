@@ -1,6 +1,7 @@
 package com.egg.dao;
 
 import com.egg.entity.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.Map;
 
@@ -19,7 +20,7 @@ public interface UserDao {
      * @param password 用户密码
      * @return 用户对象
      */
-    User login(Long phone, String password);
+    User login(@Param("phone") Long phone, @Param("password") String password);
 
     /**
      * 修改用户信息 role-owner & superAdmin

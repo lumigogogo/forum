@@ -2,6 +2,7 @@ package com.egg.service;
 
 import com.egg.entity.User;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 public interface UserService {
@@ -10,5 +11,5 @@ public interface UserService {
 
     boolean modifyUser(long userId, Map data);
 
-    long login(long phone, String password);
+    String login(long phone, String password) throws UnsupportedEncodingException;
 }

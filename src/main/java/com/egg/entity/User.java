@@ -8,7 +8,7 @@ public class User {
     private Long phone;
     private Short state;
     private String title;
-    private Long user_id;
+    private Long userId;
 
     public User(){
 
@@ -73,7 +73,7 @@ public class User {
     }
 
     public Long getUser_id() {
-        return user_id;
+        return userId;
     }
 
     @Override

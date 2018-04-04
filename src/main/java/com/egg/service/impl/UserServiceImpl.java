@@ -4,9 +4,11 @@ import com.egg.dao.UserDao;
 import com.egg.entity.User;
 import com.egg.exception.UserException;
 import com.egg.service.UserService;
+import com.egg.utils.Jwt;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 @Service("userService")
@@ -35,12 +37,13 @@ public class UserServiceImpl implements UserService{
         return false;
 }
 
-    public long login(long phone, String password) {
+    public String login(long phone, String password) throws UnsupportedEncodingException {
         User user = null;
         user = userDao.login(phone, password);
         if (user == null){
             throw new UserException("用户名或者密码错误！");
         }
-        return user.getUser_id();
+        String token = Jwt.createJwt(user.getUser_id());
+        return token;
     }
 }

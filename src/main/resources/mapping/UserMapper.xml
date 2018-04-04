@@ -11,8 +11,8 @@
         WHERE user_id = #{userId}
     </select>
 
-    <select id="login">
-        SELECT name, nick_name, phone, state, title
+    <select id="login" resultType="com.egg.entity.User">
+        SELECT user_id, name, nick_name, phone, state, title
         FROM `user`
         WHERE phone = #{phone} AND password = #{password}
     </select>

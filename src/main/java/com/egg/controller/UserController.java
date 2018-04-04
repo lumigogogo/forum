@@ -3,15 +3,13 @@ package com.egg.controller;
 import com.egg.dto.ForumREsult;
 import com.egg.entity.User;
 import com.egg.exception.UserException;
+import com.egg.pojo.LogInPoJo;
 import com.egg.service.UserService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
 
 @Controller
 @RequestMapping(value = "/user")
@@ -36,12 +34,19 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ForumREsult login(HttpServletRequest request){
+    @ResponseBody
+    public ForumREsult login(@RequestBody LogInPoJo logInPoJo){
         ForumREsult result;
-        long phone = Long.parseLong(request.getParameter("phone"));
-        String password = request.getParameter("password");
-        long userId = userService.login(phone, password);
-        result = new ForumREsult<Long>(true, userId);
+        Long phone = logInPoJo.getPhone();
+        String password = logInPoJo.getPassword();
+        try{
+            String token = userService.login(phone, password);
+            result = new ForumREsult(true, token, 0);
+        } catch (UserException e){
+            result = new ForumREsult(false, e.getMessage());
+        } catch (UnsupportedEncodingException e) {
+            result = new ForumREsult(false, e.getMessage());
+        }
         return result;
     }
 }

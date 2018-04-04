@@ -5,6 +5,8 @@ public class ForumREsult<T> {
     private boolean success;
     private T data;
     private String error;
+    private String jwt;
+    private int code;
 
     public ForumREsult(boolean success, T data){
         this.success = success;
@@ -14,6 +16,12 @@ public class ForumREsult<T> {
     public ForumREsult(boolean success, String error){
         this.success = success;
         this.error = error;
+    }
+
+    public ForumREsult(boolean success, String jwt, int code){
+        this.success = success;
+        this.jwt = jwt;
+        this.code = code;
     }
 
     public boolean isSuccess() {
@@ -40,12 +48,30 @@ public class ForumREsult<T> {
         this.error = error;
     }
 
+    public String getJwt() {
+        return jwt;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setJwt(String jwt) {
+        this.jwt = jwt;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
     @Override
     public String toString() {
         return "ForumREsult{" +
                 "success=" + success +
                 ", data=" + data +
                 ", error='" + error + '\'' +
+                ", jwt='" + jwt + '\'' +
+                ", code=" + code +
                 '}';
     }
 }
