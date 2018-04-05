@@ -1,10 +1,12 @@
 package com.egg.service.impl;
 
 import com.egg.dao.UserDao;
+import com.egg.dao.cache.RedisDao;
 import com.egg.entity.User;
 import com.egg.exception.UserException;
 import com.egg.service.UserService;
 import com.egg.utils.Jwt;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -16,6 +18,9 @@ public class UserServiceImpl implements UserService{
 
     @Resource
     private UserDao userDao;
+
+    @Autowired
+    private RedisDao redisDao;
 
     public User getUserById(Long userId) throws UserException{
         User user = null;
@@ -32,8 +37,6 @@ public class UserServiceImpl implements UserService{
         if (user == null){
         throw new UserException("用户不存在");
     }
-
-
         return false;
 }
 
@@ -44,6 +47,7 @@ public class UserServiceImpl implements UserService{
             throw new UserException("用户名或者密码错误！");
         }
         String token = Jwt.createJwt(user.getUser_id());
+        redisDao.putToken(user.getUser_id(), token);
         return token;
     }
 }
