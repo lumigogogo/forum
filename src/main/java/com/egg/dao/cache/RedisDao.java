@@ -27,4 +27,19 @@ public class RedisDao {
         }
         return null;
     }
+
+    public String getToken(long userId){
+        try{
+            Jedis jedis = jedisPool.getResource();
+            try {
+                String uid = String.valueOf(userId);
+                return jedis.get(uid);
+            }finally {
+                jedis.close();
+            }
+        }catch (Exception why){
+            why.printStackTrace();
+        }
+        return null;
+    }
 }

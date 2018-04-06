@@ -1,27 +1,20 @@
 package com.egg.dto;
 
-public class ForumREsult<T> {
+public class ForumResult<T> {
 
     private boolean success;
     private T data;
-    private String error;
-    private String jwt;
+    private String msg;
     private int code;
 
-    public ForumREsult(boolean success, T data){
+    public ForumResult(boolean success, T data){
         this.success = success;
         this.data = data;
     }
 
-    public ForumREsult(boolean success, String error){
+    public ForumResult(boolean success, String msg){
         this.success = success;
-        this.error = error;
-    }
-
-    public ForumREsult(boolean success, String jwt, int code){
-        this.success = success;
-        this.jwt = jwt;
-        this.code = code;
+        this.msg = msg;
     }
 
     public boolean isSuccess() {
@@ -32,8 +25,8 @@ public class ForumREsult<T> {
         return data;
     }
 
-    public String getError() {
-        return error;
+    public String getMsg() {
+        return msg;
     }
 
     public void setSuccess(boolean success) {
@@ -44,20 +37,12 @@ public class ForumREsult<T> {
         this.data = data;
     }
 
-    public void setError(String error) {
-        this.error = error;
-    }
-
-    public String getJwt() {
-        return jwt;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
     public int getCode() {
         return code;
-    }
-
-    public void setJwt(String jwt) {
-        this.jwt = jwt;
     }
 
     public void setCode(int code) {
@@ -66,11 +51,10 @@ public class ForumREsult<T> {
 
     @Override
     public String toString() {
-        return "ForumREsult{" +
+        return "ForumResult{" +
                 "success=" + success +
                 ", data=" + data +
-                ", error='" + error + '\'' +
-                ", jwt='" + jwt + '\'' +
+                ", msg='" + msg + '\'' +
                 ", code=" + code +
                 '}';
     }

@@ -1,8 +1,8 @@
 package com.egg.controller;
 
-import com.egg.dto.ForumREsult;
+import com.egg.annotations.LoginRequired;
+import com.egg.dto.ForumResult;
 import com.egg.entity.User;
-import com.egg.exception.UserException;
 import com.egg.pojo.LogInPoJo;
 import com.egg.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -20,33 +20,22 @@ public class UserController {
 
     @RequestMapping(value = "/{userId}/detail", method = RequestMethod.GET)
     @ResponseBody
-    public ForumREsult toIndex(@PathVariable("userId") long userId){
-        ForumREsult result;
-        try{
-            User user = userService.getUserById(userId);
-            result = new ForumREsult<User>(true, user);
-        }catch (UserException e){
-            result = new ForumREsult(false, e.getMessage());
-        }catch (Exception e1){
-            result = new ForumREsult(false, e1.getMessage());
-        }
+    @LoginRequired
+    public ForumResult toIndex(@PathVariable("userId") long userId){
+        ForumResult result;
+        User user = userService.getUserById(userId);
+        result = new ForumResult<User>(true, user);
         return result;
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public ForumREsult login(@RequestBody LogInPoJo logInPoJo){
-        ForumREsult result;
+    public ForumResult login(@RequestBody LogInPoJo logInPoJo) throws UnsupportedEncodingException {
+        ForumResult result;
         Long phone = logInPoJo.getPhone();
         String password = logInPoJo.getPassword();
-        try{
-            String token = userService.login(phone, password);
-            result = new ForumREsult(true, token, 0);
-        } catch (UserException e){
-            result = new ForumREsult(false, e.getMessage());
-        } catch (UnsupportedEncodingException e) {
-            result = new ForumREsult(false, e.getMessage());
-        }
+        String token = userService.login(phone, password);
+        result = new ForumResult(true, token);
         return result;
     }
 }

@@ -46,8 +46,8 @@ public class UserServiceImpl implements UserService{
         if (user == null){
             throw new UserException("用户名或者密码错误！");
         }
-        String token = Jwt.createJwt(user.getUser_id());
-        redisDao.putToken(user.getUser_id(), token);
+        String token = Jwt.createJwt(user.getUserId());
+        redisDao.putToken(user.getUserId(), token);
         return token;
     }
 }

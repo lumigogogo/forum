@@ -72,7 +72,7 @@ public class User {
         this.title = title;
     }
 
-    public Long getUser_id() {
+    public Long getUserId() {
         return userId;
     }
 
