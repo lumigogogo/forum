@@ -3,7 +3,7 @@ package com.egg.controller;
 import com.egg.annotations.LoginRequired;
 import com.egg.dto.ForumResult;
 import com.egg.entity.User;
-import com.egg.pojo.LogInPoJo;
+import com.egg.dto.LogInPost;
 import com.egg.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -30,10 +30,10 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public ForumResult login(@RequestBody LogInPoJo logInPoJo) throws UnsupportedEncodingException {
+    public ForumResult login(@RequestBody LogInPost logInPost) throws UnsupportedEncodingException {
         ForumResult result;
-        Long phone = logInPoJo.getPhone();
-        String password = logInPoJo.getPassword();
+        Long phone = logInPost.getPhone();
+        String password = logInPost.getPassword();
         String token = userService.login(phone, password);
         result = new ForumResult(true, token);
         return result;

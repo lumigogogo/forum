@@ -1,8 +1,6 @@
-package com.egg.pojo;
+package com.egg.dto;
 
-import java.util.HashMap;
-
-public class LogInPoJo {
+public class LogInPost {
 
     private long phone;
     private String password;
