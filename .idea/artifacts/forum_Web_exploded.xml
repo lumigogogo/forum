@@ -46,6 +46,18 @@
           <element id="library" level="project" name="Maven: org.bouncycastle:bcprov-jdk15on:1.55" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aspects:4.0.2.RELEASE" />
           <element id="library" level="project" name="Maven: redis.clients:jedis:2.7.3" />
+          <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.2" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.2.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aspects:4.2.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.2.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:4.2.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:4.2.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.2.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.2.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-test:4.2.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.2.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:4.2.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.2.8.RELEASE" />
         </element>
       </element>
     </root>

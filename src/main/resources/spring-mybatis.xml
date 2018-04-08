@@ -19,6 +19,7 @@
         <property name="location" value="classpath:jdbc.properties"/>
     </bean>
 
+
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close">
         <property name="driverClassName" value="${driver}"/>
@@ -64,4 +65,27 @@
         <constructor-arg index="0" value="localhost"/>
         <constructor-arg index="1" value="6379"/>
     </bean>
+
+    <!-- jedisConnectionFactory -->
+    <!--<bean id="jedisConnectionFactory"-->
+          <!--class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"-->
+          <!--p:hostName="127.0.0.1" p:port="6379"/>-->
+
+    <!-- redisTemplate -->
+    <!--<bean id="redisDao" class="org.springframework.data.redis.core.RedisTemplate"-->
+          <!--p:connectionFactory-ref="jedisConnectionFactory">-->
+        <!--&lt;!&ndash; 序列化方式 建立key/hashKey采用StringRedisSerializer &ndash;&gt;-->
+        <!--<property name="keySerializer">-->
+            <!--<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>-->
+        <!--</property>-->
+        <!--<property name="hashKeySerializer">-->
+            <!--<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>-->
+        <!--</property>-->
+        <!--<property name="valueSerializer">-->
+            <!--<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>-->
+        <!--</property>-->
+        <!--<property name="hashValueSerializer">-->
+            <!--<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>-->
+        <!--</property>-->
+    <!--</bean>-->
 </beans>

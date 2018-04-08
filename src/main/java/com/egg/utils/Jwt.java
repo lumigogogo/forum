@@ -38,12 +38,7 @@ public class Jwt {
             if(cacheToken==null || !cacheToken.equals(token)){
                 throw new JwtException("token异常");
             }
-        } catch (IllegalArgumentException e){
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e){
-            e.printStackTrace();
-        } catch (JWTVerificationException e){
-            e.printStackTrace();
+        } catch (Exception e){
             throw new JwtException("验证失败");
         }
     }
