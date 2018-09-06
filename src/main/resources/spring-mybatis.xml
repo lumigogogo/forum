@@ -9,7 +9,7 @@
                         http://www.springframework.org/schema/context/spring-context-3.1.xsd
                         http://www.springframework.org/schema/mvc
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
-        
+
     <!-- 自动扫描 -->
     <context:component-scan base-package="com.egg.dao"/>
 
@@ -66,26 +66,4 @@
         <constructor-arg index="1" value="6379"/>
     </bean>
 
-    <!-- jedisConnectionFactory -->
-    <!--<bean id="jedisConnectionFactory"-->
-          <!--class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"-->
-          <!--p:hostName="127.0.0.1" p:port="6379"/>-->
-
-    <!-- redisTemplate -->
-    <!--<bean id="redisDao" class="org.springframework.data.redis.core.RedisTemplate"-->
-          <!--p:connectionFactory-ref="jedisConnectionFactory">-->
-        <!--&lt;!&ndash; 序列化方式 建立key/hashKey采用StringRedisSerializer &ndash;&gt;-->
-        <!--<property name="keySerializer">-->
-            <!--<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>-->
-        <!--</property>-->
-        <!--<property name="hashKeySerializer">-->
-            <!--<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>-->
-        <!--</property>-->
-        <!--<property name="valueSerializer">-->
-            <!--<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>-->
-        <!--</property>-->
-        <!--<property name="hashValueSerializer">-->
-            <!--<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>-->
-        <!--</property>-->
-    <!--</bean>-->
 </beans>

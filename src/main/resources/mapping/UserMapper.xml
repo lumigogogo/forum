@@ -6,15 +6,16 @@
 <mapper namespace="com.egg.dao.UserDao">
 
     <select id="getUser" resultType="com.egg.entity.User" parameterType="long">
-        SELECT name, nick_name, phone, state, title
+        SELECT name, email, phone, status, title, user_id
         FROM `user`
         WHERE user_id = #{userId}
     </select>
 
     <select id="login" resultType="com.egg.entity.User">
-        SELECT user_id, name, nick_name, phone, state, title
+        SELECT user_id, name, email, phone, status, title
         FROM `user`
-        WHERE phone = #{phone} AND password = #{password}
+        WHERE name = #{name}
+          AND password = #{password}
     </select>
 
 </mapper>

@@ -1,20 +1,22 @@
 package com.egg.dao;
 
-import com.egg.entity.Comment;
+import com.egg.entity.Task;
 
 import java.util.List;
 
-public interface CommentDao {
+public interface TaskDao {
 
     /**
      * 发表评论 role-all
-     * @param comment
+     *
+     * @param task
      * @return
      */
-    boolean createComment(Comment comment);
+    boolean createComment(Task task);
 
     /**
      * 删除一条评论 role-superAdmin
+     *
      * @param commentId
      * @return
      */
@@ -22,14 +24,16 @@ public interface CommentDao {
 
     /**
      * 修改评论 role-owner & superAdmin
+     *
      * @param commentId
-     * @param comment
+     * @param task
      * @return
      */
-    boolean updateComment(Long commentId, Comment comment);
+    boolean updateComment(Long commentId, Task task);
 
     /**
      * 修改评论状态 role-superAdmin
+     *
      * @param commentId
      * @param state
      * @return
@@ -38,6 +42,7 @@ public interface CommentDao {
 
     /**
      * 删除某篇文章某位用户的所有评论 role-superAdmin
+     *
      * @param userId
      * @param articleId
      * @return
@@ -46,6 +51,7 @@ public interface CommentDao {
 
     /**
      * 批量删除评论 role-superAdmin
+     *
      * @param commentIds
      * @return
      */
@@ -53,18 +59,20 @@ public interface CommentDao {
 
     /**
      * 查询某位用户的所有评论 role-owner & superAdmin
+     *
      * @param userId
      * @param offset
      * @param limit
      * @return
      */
-    List<Comment> getCommentsByUser(Long userId, Integer offset, Integer limit);
+    List<Task> getCommentsByUser(Long userId, Integer offset, Integer limit);
 
     /**
      * 查询用户对某篇文章的所有评论 all
+     *
      * @param userId
      * @param articleId
      * @return
      */
-    List<Comment> getUserCommentsByArticle(Long userId, Long articleId, Integer offset, Integer limit);
+    List<Task> getUserCommentsByArticle(Long userId, Long articleId, Integer offset, Integer limit);
 }

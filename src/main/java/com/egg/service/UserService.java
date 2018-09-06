@@ -11,5 +11,5 @@ public interface UserService {
 
     boolean modifyUser(long userId, Map data);
 
-    String login(long phone, String password) throws UnsupportedEncodingException;
+    String login(String name, String password) throws UnsupportedEncodingException;
 }

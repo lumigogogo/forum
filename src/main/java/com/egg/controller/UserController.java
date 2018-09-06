@@ -21,20 +21,21 @@ public class UserController {
     @RequestMapping(value = "/{userId}/detail", method = RequestMethod.GET)
     @ResponseBody
     @LoginRequired
-    public ForumResult toIndex(@PathVariable("userId") long userId){
+    public ForumResult toIndex(@PathVariable("userId") long userId) {
         ForumResult result;
         User user = userService.getUserById(userId);
-        result = new ForumResult<User>(true, user);
+        result = new ForumResult<User>(true, user, "");
         return result;
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
     public ForumResult login(@RequestBody LogInPost logInPost) throws UnsupportedEncodingException {
+        System.out.print(System.getProperty("user.dir"));
         ForumResult result;
-        Long phone = logInPost.getPhone();
+        String name = logInPost.getName();
         String password = logInPost.getPassword();
-        String token = userService.login(phone, password);
+        String token = userService.login(name, password);
         result = new ForumResult(true, token);
         return result;
     }

@@ -2,10 +2,10 @@
   <artifact type="war" build-on-make="true" name="forum:Web exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/forum_Web_exploded</output-path>
     <root id="archive" name="forum_Web exploded.war">
-      <element id="javaee-facet-resources" facet="forum/web/Web" />
+      <element id="javaee-facet-resources" facet="opt/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="forum" />
+          <element id="module-output" name="opt" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.0.2.RELEASE" />

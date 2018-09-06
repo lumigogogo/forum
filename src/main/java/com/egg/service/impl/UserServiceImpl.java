@@ -1,11 +1,13 @@
 package com.egg.service.impl;
 
+import com.egg.annotations.LoginRequired;
 import com.egg.dao.UserDao;
 import com.egg.dao.cache.RedisDao;
 import com.egg.entity.User;
 import com.egg.exception.UserException;
 import com.egg.service.UserService;
 import com.egg.utils.Jwt;
+import com.egg.utils.SessionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +16,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 @Service("userService")
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Resource
     private UserDao userDao;
@@ -22,10 +24,12 @@ public class UserServiceImpl implements UserService{
     @Autowired
     private RedisDao redisDao;
 
-    public User getUserById(Long userId) throws UserException{
+    @LoginRequired
+    public User getUserById(Long userId) throws UserException {
         User user = null;
+        User u = SessionContext.getSession();
         user = userDao.getUser(userId);
-        if (user == null){
+        if (user == null) {
             throw new UserException("用户不存在");
         }
         return user;
@@ -34,16 +38,16 @@ public class UserServiceImpl implements UserService{
     public boolean modifyUser(long userId, Map data) {
         User user = null;
         user = userDao.getUser(userId);
-        if (user == null){
-        throw new UserException("用户不存在");
-    }
+        if (user == null) {
+            throw new UserException("用户不存在");
+        }
         return false;
-}
+    }
 
-    public String login(long phone, String password) throws UnsupportedEncodingException {
+    public String login(String name, String password) throws UnsupportedEncodingException {
         User user = null;
-        user = userDao.login(phone, password);
-        if (user == null){
+        user = userDao.login(name, password);
+        if (user == null) {
             throw new UserException("用户名或者密码错误！");
         }
         String token = Jwt.createJwt(user.getUserId());

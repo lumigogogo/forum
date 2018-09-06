@@ -2,11 +2,11 @@ package com.egg.dto;
 
 public class LogInPost {
 
-    private long phone;
+    private String name;
     private String password;
 
-    public long getPhone() {
-        return phone;
+    public String getName() {
+        return name;
     }
 
     public String getPassword() {

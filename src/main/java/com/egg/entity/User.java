@@ -3,24 +3,24 @@ package com.egg.entity;
 public class User {
 
     private String name;
-    private String nickName;
+    private String email;
     private String password;
     private Long phone;
-    private Short state;
+    private Short status;
     private String title;
     private Long userId;
 
-    public User(){
+    public User() {
 
     }
 
-    public User(String name, String nickName, String password,
-                Long phone, Short state, String title){
+    public User(String name, String email, String password,
+                Long phone, Short status, String title) {
         this.name = name;
-        this.nickName = nickName;
+        this.email = email;
         this.password = password;
         this.phone = phone;
-        this.state = state;
+        this.status = status;
         this.title = title;
     }
 
@@ -32,12 +32,12 @@ public class User {
         this.name = name;
     }
 
-    public String getNickName() {
-        return nickName;
+    public String getEmail() {
+        return email;
     }
 
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -56,12 +56,12 @@ public class User {
         this.phone = phone;
     }
 
-    public Short getState() {
-        return state;
+    public Short getStatus() {
+        return status;
     }
 
-    public void setState(Short state) {
-        this.state = state;
+    public void setStatus(Short status) {
+        this.status = status;
     }
 
     public String getTitle() {
@@ -80,10 +80,10 @@ public class User {
     public String toString() {
         return "User{" +
                 "name='" + name + '\'' +
-                ", nickName='" + nickName + '\'' +
+                ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", phone=" + phone +
-                ", state=" + state +
+                ", status=" + status +
                 ", title='" + title + '\'' +
                 '}';
     }

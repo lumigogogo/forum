@@ -2,7 +2,7 @@ package com.egg.exception;
 
 public class JwtException extends RuntimeException {
 
-    public JwtException(String message){
+    public JwtException(String message) {
         super(message);
     }
 }

@@ -1,51 +1,57 @@
 package com.egg.dao;
 
-import com.egg.entity.Article;
+import com.egg.entity.Dag;
 
 import java.util.List;
 
-public interface ArticleDao {
+public interface DagDao {
 
     /**
      * 新建文章 role-all
+     *
      * @param ownerId
-     * @param article
+     * @param dag
      * @return
      */
-    boolean createArticle(Long ownerId, Article article);
+    boolean createArticle(Long ownerId, Dag dag);
 
     /**
      * 获取文章详情 role-all
-     * @param articleId
+     *
+     * @param dagId
      * @return
      */
-    Article getArticleDetail(Long articleId);
+    Dag getArticleDetail(Long dagId);
 
     /**
      * 修改文章内容 role-owner & superAdmin
-     * @param articleId
-     * @param article
+     *
+     * @param dagId
+     * @param dag
      * @return
      */
-    boolean updateArticle(Long articleId, Article article);
+    boolean updateArticle(Long dagId, Dag dag);
 
     /**
      * 修改文章状态 superAdmin
-     * @param articleId
-     * @param state
+     *
+     * @param dagId
+     * @param status
      * @return
      */
-    boolean updateArticleState(Long articleId, Short state);
+    boolean updateArticleState(Long dagId, Short status);
 
     /**
      * 删除文章 role-owner & superAdmin
-     * @param articleId
+     *
+     * @param dagId
      * @return
      */
-    boolean deleteArticle(Long articleId);
+    boolean deleteArticle(Long dagId);
 
     /**
      * 删除某个用户的所有文章 role-superAdmin
+     *
      * @param userId
      * @return
      */
@@ -53,15 +59,17 @@ public interface ArticleDao {
 
     /**
      * 批量删除文章 role-owner & superAdmin
-     * @param articleIds
+     *
+     * @param dagId
      * @return
      */
-    int deleteArticlesByList(List<Long> articleIds);
+    int deleteArticlesByList(List<Long> dagId);
 
     /**
      * 查询用户发表的所有文章 role-all
+     *
      * @param userId
      * @return
      */
-    List<Article> getArticlesByUser(Long userId, Integer offset, Integer limit);
+    List<Dag> getArticlesByUser(Long userId, Integer offset, Integer limit);
 }

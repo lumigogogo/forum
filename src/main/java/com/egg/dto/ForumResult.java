@@ -7,12 +7,13 @@ public class ForumResult<T> {
     private String msg;
     private int code;
 
-    public ForumResult(boolean success, T data){
+    public ForumResult(boolean success, T data, String msg) {
         this.success = success;
         this.data = data;
+        this.msg = msg;
     }
 
-    public ForumResult(boolean success, String msg){
+    public ForumResult(boolean success, String msg) {
         this.success = success;
         this.msg = msg;
     }
